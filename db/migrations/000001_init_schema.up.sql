@@ -1,9 +1,9 @@
 CREATE TABLE "contacts" (
   "id" bigserial PRIMARY KEY,
-  "firstName" varchar,
-  "lastName" varchar NOT NULL,
+  "first_name" varchar,
+  "last_name" varchar NOT NULL,
   "email" varchar NOT NULL,
-  "accountId" bigint,
+  "account_id" bigint,
   "created_at" timestamptz DEFAULT (now())
 );
 CREATE TABLE "accounts" (
@@ -12,6 +12,6 @@ CREATE TABLE "accounts" (
   "created_at" timestamptz DEFAULT (now())
 );
 ALTER TABLE "contacts"
-ADD FOREIGN KEY ("accountId") REFERENCES "accounts" ("id");
+ADD FOREIGN KEY ("account_id") REFERENCES "accounts" ("id");
 CREATE INDEX ON "contacts" ("email");
 CREATE INDEX ON "accounts" ("name");
