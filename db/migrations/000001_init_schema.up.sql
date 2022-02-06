@@ -4,12 +4,12 @@ CREATE TABLE "contacts" (
   "last_name" varchar NOT NULL,
   "email" varchar NOT NULL,
   "account_id" bigint,
-  "created_at" timestamptz DEFAULT (now())
+  "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 CREATE TABLE "accounts" (
   "id" bigserial PRIMARY KEY,
   "name" varchar NOT NULL,
-  "created_at" timestamptz DEFAULT (now())
+  "created_at" timestamptz NOT NULL DEFAULT (now())
 );
 ALTER TABLE "contacts"
 ADD FOREIGN KEY ("account_id") REFERENCES "accounts" ("id");

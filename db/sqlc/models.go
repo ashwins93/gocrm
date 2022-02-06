@@ -4,12 +4,13 @@ package db
 
 import (
 	"database/sql"
+	"time"
 )
 
 type Account struct {
-	ID        int64        `json:"id"`
-	Name      string       `json:"name"`
-	CreatedAt sql.NullTime `json:"createdAt"`
+	ID        int64     `json:"id"`
+	Name      string    `json:"name"`
+	CreatedAt time.Time `json:"createdAt"`
 }
 
 type Contact struct {
@@ -18,5 +19,5 @@ type Contact struct {
 	LastName  string         `json:"lastName"`
 	Email     string         `json:"email"`
 	AccountID sql.NullInt64  `json:"accountID"`
-	CreatedAt sql.NullTime   `json:"createdAt"`
+	CreatedAt time.Time      `json:"createdAt"`
 }
